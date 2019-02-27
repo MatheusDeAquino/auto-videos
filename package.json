@@ -1,0 +1,19 @@
+{
+  "name": "auto-videos",
+  "version": "1.0.0",
+  "description": "Projeto de criar videos automatizados inspirado em @filipedeschamps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusDeAquino/auto-videos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatheusDeAquino/auto-videos/issues"
+  },
+  "homepage": "https://github.com/MatheusDeAquino/auto-videos#readme"
+}
