@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MatheusDeAquino/auto-videos#readme",
   "dependencies": {
     "algorithmia": "^0.3.10",
+    "googleapis": "^45.0.0",
     "readline-sync": "^1.4.9",
     "sbd": "^1.0.15",
     "watson-developer-cloud": "^3.18.3"
