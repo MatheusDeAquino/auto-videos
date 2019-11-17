@@ -15,7 +15,6 @@ async function robot() {
     state.save(content)
 
     async function fetchImagesOfAllSentences(content) {
-        //console.log(content.sentences)
         for (const sentence of content.sentences) {
             const query = '${content.searchTerm} ${sentence.keywords[0]}'
             sentence.images = await fetchGoogleAndReturnImagesLinks(query)
