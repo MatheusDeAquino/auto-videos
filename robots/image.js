@@ -3,10 +3,9 @@ const google = require('googleapis').google
 const customSearch = google.customsearch('v1')
 const state = require('./state.js')
 
-const googleSearchCredentials = require('../credentials/google-search.json')
+const googleSearchCredentials = require('../credentials/google-search.json') 
 
 async function robot() {
-    
     const content = state.load()
 
     await fetchImagesOfAllSentences(content)
@@ -16,7 +15,7 @@ async function robot() {
 
     async function fetchImagesOfAllSentences(content) {
         for (const sentence of content.sentences) {
-            const query = '${content.searchTerm} ${sentence.keywords[0]}'
+            const query = `${content.searchTerm} ${sentence.keywords[0]}`
             sentence.images = await fetchGoogleAndReturnImagesLinks(query)
 
             sentence.googleSearchQuery = query
@@ -53,12 +52,12 @@ async function robot() {
                         throw new Error('Imagem já foi baixada')
                     }
 
-                    await downloadAndSave(imageUrl, '${sentenceIndex}-original.png')
+                    await downloadAndSave(imageUrl, `${sentenceIndex}-original.png`)
                     content.downloadedImages.push(imageUrl)
-                    console.log('> [${sentenceIndex}][${imageIndex}] Baixou imagem com sucesso: ${imageUrl}')
+                    console.log(`> [image-robot] [${sentenceIndex}][${imageIndex}] Image successfully downloaded: ${imageUrl}`)
                     break
                 } catch (error) {
-                    console.log('> [${sentenceIndex}][${imageIndex}] Erro ao baixar (${imageUrl}): ${error}')
+                    console.log(`> [image-robot] [${sentenceIndex}][${imageIndex}] Error (${imageUrl}): ${error}`)
                 }
             }
         }
@@ -67,9 +66,10 @@ async function robot() {
     async function downloadAndSave(url, fileName) {
         return imageDownloader.image({
             url, url,
-            dest: './content/${fileName}'
+            dest: `./content/${fileName}`
         })
     }
+    
 }
 
 module.exports = robot
